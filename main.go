@@ -15,7 +15,7 @@ var tpl *template.Template
 
 func init() {
 	var err error
-	db, err = sql.Open("postgres", "postgres://saiashish:saiashish@localhost/bookstore?sslmode=disable")
+	db, err = sql.Open("postgres", "postgres://saiashish:saiashish@localhost/golang?sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
@@ -46,7 +46,7 @@ func main() {
 	http.HandleFunc("/books/update", booksUpdateForm)
 	http.HandleFunc("/books/update/process", booksUpdateProcess)
 	http.HandleFunc("/books/delete/process", booksDeleteProcess)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8081", nil)
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
